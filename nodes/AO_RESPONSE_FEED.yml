@@ -1195,7 +1195,7 @@ operation:
         nullable: true
         sourceColumnReferences:
         - columnReferences: []
-          transform: "CURRENT_TIMESTAMP()"
+          transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: b57199b4-368f-474c-a337-33671239eb87
@@ -1221,7 +1221,7 @@ operation:
         nullable: true
         sourceColumnReferences:
         - columnReferences: []
-          transform: "CURRENT_TIMESTAMP()"
+          transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 0f2b1d3d-c128-4e89-afb5-f481a5c60207

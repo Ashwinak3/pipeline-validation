@@ -618,7 +618,6 @@ operation:
         columnReference:
           columnCounter: 015f81f9-038c-4860-845b-7b06b9b1d9c7
           stepCounter: 5970e62c-2346-4a1d-84e5-9c8491c6e
---- START OF FILE: nodes/FCT_ACA_PAYMENT_TRANSACTION.yml ---
 fileVersion: 1
 id: 5970e62c-2346-4a1d-84e5-9c8491c6e17e
 name: FCT_ACA_PAYMENT_TRANSACTION

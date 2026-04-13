@@ -1194,10 +1194,8 @@ operation:
         name: AO_DATE_CREATED
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: a63f7615-de5e-473d-9d48-3fd695123d53
-                stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
-            transform: SRC.AO_DATE_CREATED
+        - columnReferences: []
+          transform: "CURRENT_TIMESTAMP()"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: b57199b4-368f-474c-a337-33671239eb87
@@ -1209,10 +1207,8 @@ operation:
         name: AO_CREATE_USER
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 593b4556-912f-45a2-850c-e2f754756c20
-                stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
-            transform: SRC.AO_CREATE_USER
+        - columnReferences: []
+          transform: "'spao_ao_response_feed_insert_update'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: d32d0c2e-4b68-45e0-a75d-384358a98f1f
@@ -1224,10 +1220,8 @@ operation:
         name: AO_DATE_UPDATED
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
-                stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
-            transform: SRC.AO_DATE_UPDATED
+        - columnReferences: []
+          transform: "CURRENT_TIMESTAMP()"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 0f2b1d3d-c128-4e89-afb5-f481a5c60207
@@ -1239,10 +1233,8 @@ operation:
         name: AO_UPDATE_USER
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
-                stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
-            transform: SRC.AO_UPDATE_USER
+        - columnReferences: []
+          transform: "'spao_ao_response_feed_insert_update'"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

@@ -1240,7 +1240,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+              - columnCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c2
                 stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
             transform: SRC.AO_UPDATE_USER
     cteString: ""

@@ -1,0 +1,783 @@
+fileVersion: 1
+id: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+name: ACA_CLAIM_ATTRIBUTE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_ACA_CLAIM_ATTRIBUTE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.CLAIM_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.CLAIM_STATUS_DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.RESERVE_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONVERT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.CONVERT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEATH_RESULT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.DEATH_RESULT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEATH_RESULT_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.DEATH_RESULT_DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REPORTING_BASIS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.REPORTING_BASIS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REPORTING_BASIS_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.REPORTING_BASIS_DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.CLAIMANT_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.CLAIMANT_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: WORKERS_COMPENSATION_CLAIM_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.WORKERS_COMPENSATION_CLAIM_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: WORKERS_COMPENSATION_CLAIM_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.WORKERS_COMPENSATION_CLAIM_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FRAUD_INDICATOR_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.FRAUD_INDICATOR_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CATASTROPHE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.CATASTROPHE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DRIVER_GENDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.DRIVER_GENDER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REPORTING_UNIT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.REPORTING_UNIT_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSUIT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.INSUIT_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DRIVER_CHARGEABLE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.DRIVER_CHARGEABLE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SURGERY_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.SURGERY_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYER_PREMISES_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.EMPLOYER_PREMISES_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NUMBER_OF_DEPENDENTS_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.NUMBER_OF_DEPENDENTS_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTROVERTED_CASE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.CONTROVERTED_CASE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYMENT_STATUS_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.EMPLOYMENT_STATUS_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ATTORNEY_AUTHORIZED_REPRESENTATIVE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.ATTORNEY_AUTHORIZED_REPRESENTATIVE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MULTI_CLAIM_OCCUR_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.MULTI_CLAIM_OCCUR_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNEMPLOYMENT_OFFSET_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.UNEMPLOYMENT_OFFSET_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FULL_PAY_DAY_OF_INJURY_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.FULL_PAY_DAY_OF_INJURY_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RETURN_TO_WORK_RESTRICTED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.RETURN_TO_WORK_RESTRICTED_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_EVER_CONTROVERTED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.CLAIM_EVER_CONTROVERTED_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOST_TIME_CASE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.LOST_TIME_CASE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SALARY_CONTINUED_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.SALARY_CONTINUED_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OTHER_RECOVERY_POTENTIAL_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.OTHER_RECOVERY_POTENTIAL_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOCIAL_SECURITY_OFFSET_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.SOCIAL_SECURITY_OFFSET_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PENSION_OFFSET_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.PENSION_OFFSET_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OTHER_OFFSET_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.OTHER_OFFSET_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEDUCTIBLE_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.DEDUCTIBLE_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEGREE_OF_LOSS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.DEGREE_OF_LOSS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEGREE_OF_LOSS_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.DEGREE_OF_LOSS_DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: APPRAISED_ELIGIBILITY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.APPRAISED_ELIGIBILITY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: APPRAISED_ELIGIBILITY_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.APPRAISED_ELIGIBILITY_DESCRIPTION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID_WINNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.ACA_SOURCE_SYSTEM_ID_WINNER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.ACA_DATE_CREATED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.ACA_CREATE_USER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.ACA_DATE_UPDATED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: <uuid>
+          stepCounter: 955eeb2c-7b19-4a0f-ac6a-f3c5b55de21b
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: <uuid>
+                stepCounter: ab8997a3-5c02-40a2-9907-f26cb3dbcebe
+            transform: SRC.ACA_UPDATE_USER
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SRC: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+            nodeName: ACA_CLAIM_ATTRIBUTE_PREP
+        join:
+          joinCondition: FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_CLAIM_ATTRIBUTE_PREP') }} AS SRC
+        name: ACA_CLAIM_ATTRIBUTE
+        noLinkRefs: []
+  name: ACA_CLAIM_ATTRIBUTE
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

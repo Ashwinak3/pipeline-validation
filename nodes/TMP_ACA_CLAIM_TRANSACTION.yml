@@ -1,0 +1,1358 @@
+fileVersion: 1
+id: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+name: TMP_ACA_CLAIM_TRANSACTION
+type: Node
+operation:
+  name: TMP_ACA_CLAIM_TRANSACTION
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0001-4000-8000-000000000001
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0001-4000-8000-000000000001
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0002-4000-8000-000000000002
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0002-4000-8000-000000000002
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0003-4000-8000-000000000003
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0003-4000-8000-000000000003
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_CLAIMANT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0004-4000-8000-000000000004
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_CLAIM_ATTRIBUTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0004-4000-8000-000000000004
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_CLAIM_ATTRIBUTE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0005-4000-8000-000000000005
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1e2f3a4-0001-4000-8000-000000000001
+                stepCounter: f20a7751-68b9-4a0b-9d41-45a8e3d0db3b
+              - columnCounter: b1c2d3e4-0005-4000-8000-000000000005
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: IFNULL(D.ACA_DATE_ID, CTT.ACA_DATE_ID_TRANSACTION_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0006-4000-8000-000000000006
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_DATE_ID_STATUS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0006-4000-8000-000000000006
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_DATE_ID_STATUS_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0007-4000-8000-000000000007
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_DATE_ID_REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0007-4000-8000-000000000007
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_DATE_ID_REPORTED_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0008-4000-8000-000000000008
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_DATE_ID_ACCIDENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0008-4000-8000-000000000008
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_DATE_ID_ACCIDENT_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0009-4000-8000-000000000009
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_ACCIDENT_SOURCE_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0009-4000-8000-000000000009
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_ACCIDENT_SOURCE_CODE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0010-4000-8000-000000000010
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0010-4000-8000-000000000010
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0011-4000-8000-000000000011
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: ACA_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1e2f3a4-0002-4000-8000-000000000002
+                stepCounter: f20a7751-68b9-4a0b-9d41-45a8e3d0db3b
+              - columnCounter: b1c2d3e4-0011-4000-8000-000000000011
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: IFNULL(D.FULL_DATE, CTT.ACA_TRANSACTION_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0012-4000-8000-000000000012
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(25)
+        description: ''
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0012-4000-8000-000000000012
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0013-4000-8000-000000000013
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: SOURCE_SYSTEM_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0013-4000-8000-000000000013
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SOURCE_SYSTEM_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0014-4000-8000-000000000014
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: BINARY(16)
+        description: ''
+        name: SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0014-4000-8000-000000000014
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SOURCE_SYSTEM_ACCIDENT_SOURCE_CODE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0015-4000-8000-000000000015
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0015-4000-8000-000000000015
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0016-4000-8000-000000000016
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: POLICY_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0016-4000-8000-000000000016
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.POLICY_EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0017-4000-8000-000000000017
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: POLICY_EXPIRATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0017-4000-8000-000000000017
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.POLICY_EXPIRATION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0018-4000-8000-000000000018
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0018-4000-8000-000000000018
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.CLAIM_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0019-4000-8000-000000000019
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(8)
+        description: ''
+        name: CLAIM_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0019-4000-8000-000000000019
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.CLAIM_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0020-4000-8000-000000000020
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: STATUS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0020-4000-8000-000000000020
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.STATUS_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0021-4000-8000-000000000021
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ''
+        name: REPORTED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0021-4000-8000-000000000021
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.REPORTED_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0022-4000-8000-000000000022
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ''
+        name: ACCIDENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0022-4000-8000-000000000022
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACCIDENT_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0023-4000-8000-000000000023
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(4)
+        description: ''
+        name: ACCIDENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0023-4000-8000-000000000023
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACCIDENT_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0024-4000-8000-000000000024
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(4)
+        description: ''
+        name: ACCIDENT_SOURCE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0024-4000-8000-000000000024
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACCIDENT_SOURCE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0025-4000-8000-000000000025
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(4)
+        description: ''
+        name: ACCIDENT_CITY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        transform: 'NULL'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0026-4000-8000-000000000026
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: ACCIDENT_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0026-4000-8000-000000000026
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACCIDENT_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0027-4000-8000-000000000027
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(5)
+        description: ''
+        name: ACCIDENT_ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0027-4000-8000-000000000027
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACCIDENT_ZIP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0028-4000-8000-000000000028
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(4)
+        description: ''
+        name: PART_OF_BODY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0028-4000-8000-000000000028
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.PART_OF_BODY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0029-4000-8000-000000000029
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(4)
+        description: ''
+        name: NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0029-4000-8000-000000000029
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.NATURE_OF_LOSS_CODE_PROPERTY_DAMAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0030-4000-8000-000000000030
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(4)
+        description: ''
+        name: NATURE_OF_LOSS_CODE_BODILY_INJURY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0030-4000-8000-000000000030
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.NATURE_OF_LOSS_CODE_BODILY_INJURY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0031-4000-8000-000000000031
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0031-4000-8000-000000000031
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.METHOD_OF_SETTLEMENT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0032-4000-8000-000000000032
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: NCCI_LOSS_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0032-4000-8000-000000000032
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.NCCI_LOSS_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0033-4000-8000-000000000033
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: DESCRIPTION_OF_LOSS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0033-4000-8000-000000000033
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.DESCRIPTION_OF_LOSS_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0034-4000-8000-000000000034
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: BENEFIT_JURISDICTION_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0034-4000-8000-000000000034
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.BENEFIT_JURISDICTION_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0035-4000-8000-000000000035
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: EXPOSURE_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0035-4000-8000-000000000035
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.EXPOSURE_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0036-4000-8000-000000000036
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(3)
+        description: ''
+        name: EXPOSURE_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0036-4000-8000-000000000036
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.EXPOSURE_COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0037-4000-8000-000000000037
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(25)
+        description: ''
+        name: STATE_CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0037-4000-8000-000000000037
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.STATE_CLAIM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0038-4000-8000-000000000038
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(25)
+        description: ''
+        name: FULL_STATE_CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0038-4000-8000-000000000038
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.FULL_STATE_CLAIM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0039-4000-8000-000000000039
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: EMPLOYER_NOTIFICATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0039-4000-8000-000000000039
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.EMPLOYER_NOTIFICATION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0040-4000-8000-000000000040
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: VEHICLE_IDENTIFICATION_NUMBER_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0040-4000-8000-000000000040
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.VEHICLE_IDENTIFICATION_NUMBER_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0041-4000-8000-000000000041
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(3)
+        description: ''
+        name: CLAIM_ADJUSTING_BRANCH_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0041-4000-8000-000000000041
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.CLAIM_ADJUSTING_BRANCH_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0042-4000-8000-000000000042
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(6)
+        description: ''
+        name: ADJUSTER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0042-4000-8000-000000000042
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ADJUSTER_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0043-4000-8000-000000000043
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: NUMBER_OF_DEPENDENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0043-4000-8000-000000000043
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.NUMBER_OF_DEPENDENTS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0044-4000-8000-000000000044
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(12)
+        description: ''
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0044-4000-8000-000000000044
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.CLAIMANT_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0045-4000-8000-000000000045
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: CLAIMANT_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0045-4000-8000-000000000045
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.CLAIMANT_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0046-4000-8000-000000000046
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: CLAIMANT_SSN_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0046-4000-8000-000000000046
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.CLAIMANT_SSN_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0047-4000-8000-000000000047
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: EMPLOYEE_LAST_WORK_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0047-4000-8000-000000000047
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.EMPLOYEE_LAST_WORK_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0048-4000-8000-000000000048
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(12)
+        description: ''
+        name: COMPENSATION_RATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0048-4000-8000-000000000048
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.COMPENSATION_RATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0049-4000-8000-000000000049
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: NCCI_INJURY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0049-4000-8000-000000000049
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.NCCI_INJURY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0050-4000-8000-000000000050
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: DISABILITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0050-4000-8000-000000000050
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.DISABILITY_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0051-4000-8000-000000000051
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: RETURN_TO_WORK_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0051-4000-8000-000000000051
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.RETURN_TO_WORK_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0052-4000-8000-000000000052
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: MAX_MEDICAL_IMPROVEMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0052-4000-8000-000000000052
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.MAX_MEDICAL_IMPROVEMENT_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0053-4000-8000-000000000053
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ''
+        name: POST_INJURY_WEEKLY_WAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0053-4000-8000-000000000053
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.POST_INJURY_WEEKLY_WAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0054-4000-8000-000000000054
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(3)
+        description: ''
+        name: PERCENTAGE_OF_IMPAIRMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0054-4000-8000-000000000054
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.PERCENTAGE_OF_IMPAIRMENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0055-4000-8000-000000000055
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(40)
+        description: ''
+        name: INSURER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0055-4000-8000-000000000055
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.INSURER_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0056-4000-8000-000000000056
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ''
+        name: OTHER_WEEKLY_PAYMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0056-4000-8000-000000000056
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.OTHER_WEEKLY_PAYMENTS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0057-4000-8000-000000000057
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: ATTORNEY_DISCLOSURE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0057-4000-8000-000000000057
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ATTORNEY_DISCLOSURE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0058-4000-8000-000000000058
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ''
+        name: REPORTING_BASIS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0058-4000-8000-000000000058
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.REPORTING_BASIS_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0059-4000-8000-000000000059
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ''
+        name: OCCURRENCE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0059-4000-8000-000000000059
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.OCCURRENCE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0060-4000-8000-000000000060
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(14)
+        description: ''
+        name: MULTI_CLAIM_OCCUR_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0060-4000-8000-000000000060
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.MULTI_CLAIM_OCCUR_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0061-4000-8000-000000000061
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: NCCI_METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0061-4000-8000-000000000061
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.NCCI_METHOD_OF_SETTLEMENT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0062-4000-8000-000000000062
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: LOSS_PROGRAM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0062-4000-8000-000000000062
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.LOSS_PROGRAM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0063-4000-8000-000000000063
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: DENIAL_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0063-4000-8000-000000000063
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.DENIAL_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0064-4000-8000-000000000064
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ''
+        name: WEEKLY_BENEFIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0064-4000-8000-000000000064
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.WEEKLY_BENEFIT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0065-4000-8000-000000000065
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: NCCI_TYPE_OF_LOSS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0065-4000-8000-000000000065
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.NCCI_TYPE_OF_LOSS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0066-4000-8000-000000000066
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(2)
+        description: ''
+        name: NCCI_PPO_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0066-4000-8000-000000000066
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.NCCI_PPO_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0067-4000-8000-000000000067
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(8)
+        description: ''
+        name: TOTAL_LOST_WORK_DAYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0067-4000-8000-000000000067
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.TOTAL_LOST_WORK_DAYS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0068-4000-8000-000000000068
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(40)
+        description: ''
+        name: CLIENT_OPTIONAL_CLAIM_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0068-4000-8000-000000000068
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.CLIENT_OPTIONAL_CLAIM_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0069-4000-8000-000000000069
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(4)
+        description: ''
+        name: INSURED_VEHICLE_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0069-4000-8000-000000000069
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.INSURED_VEHICLE_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0070-4000-8000-000000000070
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(15)
+        description: ''
+        name: INSURED_VEHICLE_MAKE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0070-4000-8000-000000000070
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.INSURED_VEHICLE_MAKE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0071-4000-8000-000000000071
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(50)
+        description: ''
+        name: BENEFICIARY_INFORMATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0071-4000-8000-000000000071
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.BENEFICIARY_INFORMATION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0072-4000-8000-000000000072
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(10)
+        description: ''
+        name: REPORTING_UNIT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0072-4000-8000-000000000072
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.REPORTING_UNIT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0073-4000-8000-000000000073
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: RETURN_TO_WORK_FULL_DUTY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0073-4000-8000-000000000073
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.RETURN_TO_WORK_FULL_DUTY_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0074-4000-8000-000000000074
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: RETURN_TO_WORK_RELEASE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0074-4000-8000-000000000074
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.RETURN_TO_WORK_RELEASE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0075-4000-8000-000000000075
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: REPRESENTATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0075-4000-8000-000000000075
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.REPRESENTATION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0076-4000-8000-000000000076
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: SALARY_CONTINUED_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0076-4000-8000-000000000076
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SALARY_CONTINUED_START_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0077-4000-8000-000000000077
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: SALARY_CONTINUED_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0077-4000-8000-000000000077
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SALARY_CONTINUED_END_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0078-4000-8000-000000000078
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: MEDICAL_TO_INDEMNITY_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0078-4000-8000-000000000078
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.MEDICAL_TO_INDEMNITY_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0079-4000-8000-000000000079
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: DATE
+        description: ''
+        name: LAST_REVIEW_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        transform: 'NULL'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0080-4000-8000-000000000080
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: BINARY(16)
+        description: ''
+        name: SOURCE_SYSTEM_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0078-4000-8000-000000000078
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SOURCE_SYSTEM_CLAIMANT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0081-4000-8000-000000000081
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: BINARY(16)
+        description: ''
+        name: SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0079-4000-8000-000000000079
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SOURCE_SYSTEM_CLAIM_ATTRIBUTE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0082-4000-8000-000000000082
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: BINARY(16)
+        description: ''
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0080-4000-8000-000000000080
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SOURCE_SYSTEM_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0083-4000-8000-000000000083
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(25)
+        description: ''
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0081-4000-8000-000000000081
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0084-4000-8000-000000000084
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(1)
+        description: ''
+        name: ACA_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1c2d3e4-0082-4000-8000-000000000082
+                stepCounter: 5b78d2b9-e415-4fa6-8472-a08b60ec8b1d
+            transform: ''
+        transform: CTT.ACA_CURRENT_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0085-4000-8000-000000000085
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ''
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0086-4000-8000-000000000086
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        transform: '''SPACA_ACA_CLAIM_TRANSACTION_ESIS_INSERTUPDATE'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0087-4000-8000-000000000087
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ''
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d2e3f4-0088-4000-8000-000000000088
+          stepCounter: 2f6a908a-b86a-493f-a602-0e3c5a610cf7
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        transform: '''SPACA_ACA_CLAIM_TRANSACTION_ESIS_INSERTUPDATE'''
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          CTT: CTT
+          D: D
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+            nodeName: ACA_CLAIM_TRANSACTION_STAGING_ESIS
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_DATE
+        join:
+          joinCondition: "FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_CLAIM_TRANSACTION_STAGING_ESIS')\
+            \ }} AS CTT\nLEFT OUTER JOIN {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_DATE')\
+            \ }} AS D ON 1=1\n  AND D.FULL_DATE BETWEEN CTT.SOURCE_SYSTEM_TRANSACTION_DATE\
+            \ AND IFNULL(CTT.NEXT_TRANSACTION_DATE, CTT.MAX_TRANSACTION_DATE_PER_CLAIM)"
+        name: TMP_ACA_CLAIM_TRANSACTION
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

@@ -1,0 +1,34 @@
+fileVersion: 1
+id: b003e871-ffb3-4f93-b2da-38cd0a89d3a7
+name: ACA_TRANSACTION_CLAIM_STAGING
+type: Node
+operation:
+  name: ACA_TRANSACTION_CLAIM_STAGING
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8b0a9cb-df7d-4116-83f6-4ef1e479c4a8
+          stepCounter: b003e871-ffb3-4f93-b2da-38cd0a89d3a7
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ''
+        description: ''
+        name: ACA_DATE_CREATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1

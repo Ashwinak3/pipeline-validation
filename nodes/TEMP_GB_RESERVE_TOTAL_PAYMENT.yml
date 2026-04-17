@@ -1,0 +1,130 @@
+fileVersion: 1
+id: 11bf4725-dfc4-38b3-a3d5-45f8bf05a710
+name: TEMP_GB_RESERVE_TOTAL_PAYMENT
+type: Node
+operation:
+  name: TEMP_GB_RESERVE_TOTAL_PAYMENT
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3q7i16eb-fv05-4bg9-fc4l-hj9g0h1k2j3i
+          stepCounter: 11bf4725-dfc4-38b3-a3d5-45f8bf05a710
+        config: {}
+        dataType: VARCHAR(30)
+        description: ''
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a8c3e85-9f2d-45a1-9c6f-bd1a2b3e4d5c
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: PMT.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4r8j27fc-gw16-5ch0-gd5m-ik0h1i2l3k4j
+          stepCounter: 11bf4725-dfc4-38b3-a3d5-45f8bf05a710
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b9d4f96-a03e-46b2-ad7g-ce2b3c4f5e6d
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: PMT.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5s9k38gd-hx27-6di1-he6n-jl1i2j3m4l5k
+          stepCounter: 11bf4725-dfc4-38b3-a3d5-45f8bf05a710
+        config: {}
+        dataType: DATE
+        description: ''
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2v6n05jg-ka94-3gl8-kh3q-mo8l9m0p1o2n
+                stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+            transform: C.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6t0l49he-iy38-7ej2-if7o-km2j3k4n5m6l
+          stepCounter: 11bf4725-dfc4-38b3-a3d5-45f8bf05a710
+        config: {}
+        dataType: VARCHAR(25)
+        description: ''
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6fd183da-e472-4af6-eb1k-gi6f7g8j9i0h
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: MAX(PMT.RESERVE_TYPE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7u1m50if-jz49-8fk3-jg8p-ln3k4l5o6n7m
+          stepCounter: 11bf4725-dfc4-38b3-a3d5-45f8bf05a710
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ''
+        name: PAYMENT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ig4b6gd-h705-4di9-he4n-jl9i0j1m2l3k
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: SUM(PMT.PAYMENT_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          C: C
+          PMT: PMT
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_PAYMENT_TRANSACTION
+          - locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+            nodeName: TEMP_GB_RESERVE_NEW_TRANSACTION
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_PAYMENT_TRANSACTION'')
+            }} AS PMT
+
+            INNER JOIN {{ ref(''ALLIANT_CLAIMS_ASTRUS_STAGE_DBO'', ''TEMP_GB_RESERVE_NEW_TRANSACTION'')
+            }} AS C
+
+            ON C.SOURCE_SYSTEM_CLAIM_ID = PMT.SOURCE_SYSTEM_CLAIM_ID AND C.ACA_RESERVE_TYPE_ID
+            = PMT.ACA_RESERVE_TYPE_ID
+
+            WHERE PMT.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{
+            ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_SOURCE_SYSTEM'') }} WHERE SOURCE_SYSTEM
+            = ''GB'')
+
+            AND PMT.TRANSACTION_DATE <= C.TRANSACTION_DATE
+
+            GROUP BY PMT.SOURCE_SYSTEM_CLAIM_ID, PMT.ACA_RESERVE_TYPE_ID, C.TRANSACTION_DATE'
+        name: TEMP_GB_RESERVE_TOTAL_PAYMENT
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

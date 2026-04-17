@@ -1,0 +1,160 @@
+fileVersion: 1
+id: 66043c7a-2419-4708-f82a-3a4d0464fc65
+name: ACA_RESERVE_TRANSACTION
+type: Node
+operation:
+  name: ACA_RESERVE_TRANSACTION
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1j9c3e85-9f2d-45a1-9c6f-bd1a2b3e4d5c
+          stepCounter: 66043c7a-2419-4708-f82a-3a4d0464fc65
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ''
+        description: ''
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2k0d4f96-a03e-46b2-ad7g-ce2b3c4f5e6d
+          stepCounter: 66043c7a-2419-4708-f82a-3a4d0464fc65
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3l1e50a7-b14f-47c3-be8h-df3c4d5g6f7e
+          stepCounter: 66043c7a-2419-4708-f82a-3a4d0464fc65
+        config: {}
+        dataType: VARCHAR(30)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4m2f61b8-c250-48d4-cf9i-eg4d5e6h7g8f
+          stepCounter: 66043c7a-2419-4708-f82a-3a4d0464fc65
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5n3g72c9-d361-49e5-da0j-fh5e6f7i8h9g
+          stepCounter: 66043c7a-2419-4708-f82a-3a4d0464fc65
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6o4h83da-e472-4af6-eb1k-gi6f7g8j9i0h
+          stepCounter: 66043c7a-2419-4708-f82a-3a4d0464fc65
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7p5i94eb-f583-4bg7-fc2l-hj7g8h9k0j1i
+          stepCounter: 66043c7a-2419-4708-f82a-3a4d0464fc65
+        config: {}
+        dataType: VARCHAR(25)
+        defaultValue: ''
+        description: ''
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8q6j05fc-g694-4ch8-gd3m-ik8h9i0l1k2j
+          stepCounter: 66043c7a-2419-4708-f82a-3a4d0464fc65
+        config: {}
+        dataType: NUMBER(19,2)
+        defaultValue: ''
+        description: ''
+        name: RESERVE_AMOUNT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1

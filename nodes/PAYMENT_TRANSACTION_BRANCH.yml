@@ -1,0 +1,140 @@
+fileVersion: 1
+id: 88265e9c-463b-492a-1a4c-5c6f26861e87
+name: PAYMENT_TRANSACTION_BRANCH
+type: Node
+operation:
+  name: PAYMENT_TRANSACTION_BRANCH
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3t9m38if-j927-6fk1-jg6p-ln1k2l3o4n5m
+          stepCounter: 88265e9c-463b-492a-1a4c-5c6f26861e87
+        config: {}
+        dataType: VARCHAR(30)
+        description: ''
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a8c3e85-9f2d-45a1-9c6f-bd1a2b3e4d5c
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4u0n49jg-ka38-7gl2-kh7q-mo2l3m4p5o6n
+          stepCounter: 88265e9c-463b-492a-1a4c-5c6f26861e87
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b9d4f96-a03e-46b2-ad7g-ce2b3c4f5e6d
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5v1o50kh-lb49-8hm3-li8r-np3m4n5q6p7o
+          stepCounter: 88265e9c-463b-492a-1a4c-5c6f26861e87
+        config: {}
+        dataType: DATE
+        description: ''
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3cae50a7-b14f-47c3-be8h-df3c4d5g6f7e
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6w2p61li-mc50-9in4-mj9s-oq4n5o6r7q8p
+          stepCounter: 88265e9c-463b-492a-1a4c-5c6f26861e87
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ''
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4dbf61b8-c250-48d4-cf9i-eg4d5e6h7g8f
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: ACA_DATE_ID_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7x3q72mj-nd61-0jo5-nk0t-pr5o6p7s8r9q
+          stepCounter: 88265e9c-463b-492a-1a4c-5c6f26861e87
+        config: {}
+        dataType: CHAR(2)
+        description: ''
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ec072c9-d361-49e5-da0j-fh5e6f7i8h9g
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8y4r83nk-oe72-1kp6-ol1u-qs6p7q8t9s0r
+          stepCounter: 88265e9c-463b-492a-1a4c-5c6f26861e87
+        config: {}
+        dataType: VARCHAR(25)
+        description: ''
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6fd183da-e472-4af6-eb1k-gi6f7g8j9i0h
+                stepCounter: 11b98725-d9c4-42b3-a3d5-e5f8b919a710
+            transform: MAX(RESERVE_TYPE)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_PAYMENT_TRANSACTION
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_SOURCE_SYSTEM
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_RESERVE_TRANSACTION
+        join:
+          joinCondition: 'FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_PAYMENT_TRANSACTION'')
+            }}
+
+            WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'',
+            ''ACA_SOURCE_SYSTEM'') }} WHERE SOURCE_SYSTEM = ''GB'')
+
+            AND ACA_DATE_UPDATED > IFF({{ parameters.IREPROCESSSTARTTRANSACTIONDATE
+            }} IS NULL, (SELECT IFNULL(MAX(ACA_DATE_UPDATED), ''1776-07-04 00:00:00.000''::TIMESTAMP_NTZ)
+            FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'', ''ACA_RESERVE_TRANSACTION'')
+            }} WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref(''ALLIANT_CLAIMS_ASTRUS_DBO'',
+            ''ACA_SOURCE_SYSTEM'') }} WHERE SOURCE_SYSTEM = ''GB'')), ''1900-01-01''::DATE)
+
+            AND TRANSACTION_DATE >= IFNULL({{ parameters.IREPROCESSSTARTTRANSACTIONDATE
+            }}, ''1900-01-01''::DATE)'
+        name: PAYMENT_TRANSACTION_BRANCH
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

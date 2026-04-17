@@ -1,0 +1,225 @@
+fileVersion: 1
+id: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+name: TMPBROKERLIST
+type: Node
+operation:
+  name: TMPBROKERLIST
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: "BEGIN\n  LET current_timestamp TIMESTAMP_NTZ := CURRENT_TIMESTAMP();\n\
+      \  LET proc_name VARCHAR(100) := 'sppa_planning_fccs_broker_update_duplicate_lookup_alias_parent_id';\n\
+      \  LET no_rows DECIMAL(8, 2) := 300.00;\n  LET max_group_id INT;\n  LET count_of_max_group_id\
+      \ INT;\n  LET counter INT;\n  LET existing_group_row_count INT := 0;\n  LET\
+      \ new_group_count INT := 0;\n  LET new_group_rows INT := 0;\n  LET max_existing_group_id\
+      \ INT;\n  LET broker_list_table_name VARCHAR := '{{ ref_no_link('PLANNING_ALLIANT_DBO_STAGING',\
+      \ 'TMPBROKERLIST') }}';\n  LET broker_table_name VARCHAR := '{{ ref_no_link('PLANNING_ALLIANT_DBO',\
+      \ 'PLANNING_FCCS_BROKER') }}';\n  SELECT MAX(TRY_CAST(existing_group_id AS INT))\
+      \ INTO :max_existing_group_id FROM IDENTIFIER(:broker_list_table_name);\n  SELECT\
+      \ MAX(TRY_CAST(SUBSTRING(parent_planning_id, 1, CHARINDEX('_', parent_planning_id)\
+      \ - 1) AS INT)) INTO :max_group_id FROM IDENTIFIER(:broker_table_name);\n  SELECT\
+      \ COUNT(1) INTO :count_of_max_group_id FROM IDENTIFIER(:broker_table_name) WHERE\
+      \ TRY_CAST(SUBSTRING(parent_planning_id, 1, CHARINDEX('_', parent_planning_id)\
+      \ - 1) AS INT) = :max_group_id;\n  IF (:max_existing_group_id = :max_group_id)\
+      \ THEN\n    SELECT 0 INTO :count_of_max_group_id;\n  END IF;\n  IF (:max_group_id\
+      \ IS NOT NULL AND :max_existing_group_id <> :max_group_id) THEN\n    LET rows_to_update\
+      \ INT := CAST(:no_rows AS INT) - :count_of_max_group_id;\n    IF (rows_to_update\
+      \ > 0) THEN\n      UPDATE IDENTIFIER(:broker_list_table_name) AS t\n      SET\
+      \ new_parent_group_id = :max_group_id,\n          new_parent_planning_id = CONCAT(:max_group_id,\
+      \ '_Producer_Parent'),\n          new_parent_broker_count = :count_of_max_group_id\
+      \ + s.rn\n      FROM (\n          SELECT row_id, ROW_NUMBER() OVER (ORDER BY\
+      \ row_id) as rn\n          FROM IDENTIFIER(:broker_list_table_name)\n      \
+      \    WHERE new_parent_group_id IS NULL\n          LIMIT :rows_to_update\n  \
+      \    ) AS s\n      WHERE t.row_id = s.row_id;\n      existing_group_row_count\
+      \ := SQLROWCOUNT + :existing_group_row_count;\n    END IF;\n  counter := COALESCE(:max_group_id,\
+      \ 0) + 1;\n  WHILE ((SELECT COUNT(1) FROM IDENTIFIER(:broker_list_table_name)\
+      \ WHERE new_parent_group_id IS NULL) > 0) DO\n      UPDATE IDENTIFIER(:broker_list_table_name)\
+      \ AS t\n      SET new_parent_group_id = :counter,\n          new_parent_planning_id\
+      \ = CONCAT(:counter, '_Producer_Parent'),\n          new_parent_broker_count\
+      \ = t.row_id - :existing_group_row_count - :new_group_rows,\n          new_parent_flag\
+      \ = 'Y'\n      FROM (\n          SELECT row_id\n          FROM IDENTIFIER(:broker_list_table_name)\n\
+      \          WHERE new_parent_group_id IS NULL\n          LIMIT CAST(:no_rows\
+      \ AS INT)\n      ) AS s\n      WHERE t.row_id = s.row_id;\n    counter := counter\
+      \ + 1;\n    new_group_count := new_group_count + 1;\n    new_group_rows := :no_rows\
+      \ * :new_group_count;\n  END WHILE;\n  BEGIN;\n  INSERT INTO PLANNING_ALLIANT.DBO.PLANNING_FCCS_BROKER\
+      \ (\n    parent_planning_id, planning_id, broker_name, broker_lookup_code, planning_alias,\n\
+      \    source_system_broker_lookup_code, source_system_broker_id, dw_broker_master_id,\n\
+      \    source_system, dw_source_system_id, broker_status_indicator, current_flag,\n\
+      \    dw_date_created, dw_create_user, dw_date_updated, dw_update_user\n  )\n\
+      \  SELECT DISTINCT\n    'All_Producer',\n    l.new_parent_planning_id,\n   \
+      \ NULL, NULL, NULL, NULL, 'N', 'Y',\n    :current_timestamp, :proc_name, :current_timestamp,\
+      \ :proc_name\n  FROM IDENTIFIER(:broker_list_table_name) AS l\n  LEFT OUTER\
+      \ JOIN PLANNING_ALLIANT.DBO.PLANNING_FCCS_BROKER b ON l.new_parent_planning_id\
+      \ = b.planning_id AND b.parent_planning_id = 'All_Producer'\n  WHERE b.planning_id\
+      \ IS NULL AND l.new_parent_flag = 'Y';\n  UPDATE PLANNING_ALLIANT.DBO.PLANNING_FCCS_BROKER\
+      \ AS c\n  SET parent_planning_id = l.new_parent_planning_id,\n      broker_status_indicator\
+      \ = 'U',\n      current_flag = 'Y',\n      dw_date_updated = :current_timestamp,\n\
+      \      dw_update_user = :proc_name\n  FROM IDENTIFIER(:broker_list_table_name)\
+      \ AS l\n  INNER JOIN PLANNING_ALLIANT.DBO.PLANNING_FCCS_BROKER AS pb ON l.new_parent_planning_id\
+      \ = pb.planning_id\n  WHERE c.planning_id = l.planning_id AND c.parent_planning_id\
+      \ <> l.new_parent_planning_id;\n  INSERT INTO PLANNING_ALLIANT.DBO.PLANNING_FCCS_BROKER_CLIENT_CHANGES\
+      \ (\n    dimension_type, change_type, planning_id, lookup_code, source_system,\
+      \ planning_alias,\n    dw_broker_client_master_id, status_indicator, begin_post_date,\
+      \ end_post_date,\n    parent_planning_id, original_parent_planning_id, dw_date_created,\
+      \ dw_create_user,\n    dw_date_updated, dw_update_user\n  )\n  SELECT\n    CAST('Broker'\
+      \ AS VARCHAR(50)),\n    CAST('ParentID' AS VARCHAR(50)),\n    b.planning_id,\n\
+      \    b.source_system_broker_lookup_code,\n    b.source_system,\n    b.planning_alias,\n\
+      \    b.dw_broker_master_id,\n    b.broker_status_indicator,\n    a.begin_post_date,\n\
+      \    a.end_post_date,\n    b.parent_planning_id,\n    l.existing_parent_planning_id,\n\
+      \    :current_timestamp, :proc_name, :current_timestamp, :proc_name\n  FROM\
+      \ PLANNING_ALLIANT.DBO.PLANNING_FCCS_BROKER AS b\n  INNER JOIN IDENTIFIER(:broker_list_table_name)\
+      \ AS l ON b.planning_id = l.planning_id\n  INNER JOIN (\n    SELECT s.broker_planning_id,\
+      \ MIN(s.post_date) AS begin_post_date, MAX(s.post_date) AS end_post_date\n \
+      \   FROM PLANNING_ALLIANT.DBO.PLANNING_FCCS_ACTUALS_STAGING AS s\n    INNER\
+      \ JOIN IDENTIFIER(:broker_list_table_name) AS bl ON s.broker_planning_id = bl.planning_id\n\
+      \    GROUP BY s.broker_planning_id\n  ) AS a ON l.planning_id = a.broker_planning_id;\n\
+      \  COMMIT;\nEXCEPTION\n  WHEN OTHER THEN\n    ROLLBACK;\n    RAISE;\nEND;"
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: PLANNING_ALLIANT_DBO_STAGING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1ca08b1-41fb-4299-8086-5d63f0df6834
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a429b9f-0925-4b08-8eec-4848d5b40cf7
+                stepCounter: 48b7a672-0fbc-4ea7-aa31-e1bc1edcd23a
+            transform: SRC.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ef5c338-dbcc-477d-bcf6-e028b1767e33
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: BROKER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81827471-bc01-443b-8581-22920e171b9c
+                stepCounter: 48b7a672-0fbc-4ea7-aa31-e1bc1edcd23a
+            transform: SRC.BROKER_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f59392e9-a417-4952-b8d9-4b6e51de281f
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: EXISTING_PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f376a26d-47fb-41a4-9271-70557cc3da1b
+                stepCounter: 48b7a672-0fbc-4ea7-aa31-e1bc1edcd23a
+            transform: SRC.PARENT_PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5df9e4c1-65f6-49dc-ab86-fde26b1e84fc
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: EXISTING_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f376a26d-47fb-41a4-9271-70557cc3da1b
+                stepCounter: 48b7a672-0fbc-4ea7-aa31-e1bc1edcd23a
+            transform: REPLACE(SRC.PARENT_PLANNING_ID, '_Producer_Parent', '')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da8542c9-63a1-432d-9af2-04ceafcd155b
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: NUMBER
+        description: ''
+        name: NEW_PARENT_GROUP_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f968962-e6dc-4048-b4b9-277e92825bc5
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: NEW_PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af6861aa-bb26-4447-aa72-52ce9b2184e8
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: NUMBER
+        description: ''
+        name: NEW_PARENT_BROKER_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d284a12-f045-42a1-a48a-669c2794eb09
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: CHAR(1)
+        description: ''
+        name: NEW_PARENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''N'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab4c9e3b-a53c-41c1-bf96-176378e9f506
+          stepCounter: 868018e6-1dc3-4a18-aec2-68fb4f9b8ecf
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ''
+        name: ROW_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROW_NUMBER() OVER (ORDER BY SRC.PLANNING_FCCS_BROKER_ID)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SRC: SRC
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: PLANNING_ALLIANT_DBO_STAGING
+            nodeName: TMPDUPLICATELOOKUPALIAS
+        join:
+          joinCondition: 'FROM {{ ref(''PLANNING_ALLIANT_DBO_STAGING'', ''TMPDUPLICATELOOKUPALIAS'')
+            }} AS SRC
+
+            WHERE SRC.ROW_ID <> 1'
+        name: TMPBROKERLIST
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1

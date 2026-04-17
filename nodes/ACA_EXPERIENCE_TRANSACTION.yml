@@ -1,0 +1,178 @@
+fileVersion: 1
+id: 33d10947-f1e6-44d5-c5f7-071ad131c932
+name: ACA_EXPERIENCE_TRANSACTION
+type: Node
+operation:
+  name: ACA_EXPERIENCE_TRANSACTION
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1s8c3e85-9f2d-45a1-9c6f-bd1a2b3e4d5c
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: VARCHAR(30)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2t9d4f96-a03e-46b2-ad7g-ce2b3c4f5e6d
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3uae50a7-b14f-47c3-be8h-df3c4d5g6f7e
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: DATE
+        defaultValue: ''
+        description: ''
+        name: EXPERIENCE_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4vbf61b8-c250-48d4-cf9i-eg4d5e6h7g8f
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5wc072c9-d361-49e5-da0j-fh5e6f7i8h9g
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: CHAR(2)
+        defaultValue: ''
+        description: ''
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6xd183da-e472-4af6-eb1k-gi6f7g8j9i0h
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: VARCHAR(25)
+        defaultValue: ''
+        description: ''
+        name: RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ye294eb-f583-4bg7-fc2l-hj7g8h9k0j1i
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8zf3a5fc-g694-4ch8-gd3m-ik8h9i0l1k2j
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ''
+        description: ''
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a0g4b6gd-h705-4di9-he4n-jl9i0j1m2l3k
+          stepCounter: 33d10947-f1e6-44d5-c5f7-071ad131c932
+        config: {}
+        dataType: NUMBER(19,2)
+        defaultValue: ''
+        description: ''
+        name: EXPERIENCE_AMOUNT_BY_RESERVE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1
